@@ -1,15 +1,20 @@
 package co.develhope.springdevelhope.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/name")
 public class NameController {
 
-    @GetMapping(value = "")
-    public String sayMyName(){
+    @GetMapping(value = "/name")
+    public String getName(){
         return "Raman";
+    }
+    @PostMapping("/{name}")
+    public StringBuilder postName(@PathVariable String name){
+        StringBuilder stringBuilder = new StringBuilder(name);
+        return stringBuilder.reverse();
+    }
+
+    public NameController() {
     }
 }
