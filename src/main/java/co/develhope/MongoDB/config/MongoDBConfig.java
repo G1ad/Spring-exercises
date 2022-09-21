@@ -24,7 +24,7 @@ public class MongoDBConfig  extends AbstractMongoClientConfiguration {
     @Override
     public MongoClient mongoClient() {
         ConnectionString connectionString = new ConnectionString
-                ("mongodb+srv://glad:2QTeIjdQGOluLj7Z@cluster0.zrtk3hb.mongodb.net/?retryWrites=true&w=majority");
+                ("mongodb+srv://glad:<Password>@cluster0.zrtk3hb.mongodb.net/?retryWrites=true&w=majority");
         MongoClientSettings settings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .serverApi(ServerApi.builder()
