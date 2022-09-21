@@ -1,13 +1,12 @@
-package co.develhope.hybernate;
+package co.develhope.MongoDB;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HybernateApplication {
-
+public class MongoDBApplication {
     public static void main(String[] args) {
-        SpringApplication.run(HybernateApplication.class, args);
+        SpringApplication.run(MongoDBApplication.class, args);
     }
 
 }
