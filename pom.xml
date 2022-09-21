@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>co.develhope</groupId>
-    <artifactId>hybernate</artifactId>
+    <artifactId>NoSQL</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hybernate</name>
-    <description>hybernate</description>
+    <name>NoSQL</name>
+    <description>NoSQL Exercise </description>
     <properties>
         <java.version>11</java.version>
     </properties>

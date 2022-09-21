@@ -32,6 +32,7 @@ public class MongoDBConfig  extends AbstractMongoClientConfiguration {
                         .build())
                 .build();
         MongoClient mongoClient = MongoClients.create(settings);
+
         return mongoClient;
     }
 
@@ -39,6 +40,4 @@ public class MongoDBConfig  extends AbstractMongoClientConfiguration {
     protected Collection<String> getMappingBasePackages() {
         return Collections.singleton("co.develhope");
     }
-
-
 }
