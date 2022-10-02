@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/name")
-public class NameController {
+@RequestMapping("/legacy")
+public class LegacyController {
 
-    @GetMapping(value = "")
-    public String sayMyName(){
-        return "Raman";
+    @GetMapping("")
+    public String string(){
+        return "This is just old code";
     }
 }
