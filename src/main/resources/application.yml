@@ -1,7 +1,13 @@
 spring:
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/newdb
+    username: root
+    password: Password123.
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
 server:
-  port : 1234
+  port: 5050
