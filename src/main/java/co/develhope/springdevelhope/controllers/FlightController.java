@@ -4,8 +4,12 @@ import co.develhope.springdevelhope.entities.Flight;
 import co.develhope.springdevelhope.entities.Status;
 import co.develhope.springdevelhope.repositories.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -13,7 +17,7 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
-@RequestMapping("/flights")
+@RequestMapping("/flight")
 public class FlightController {
 
     @Autowired
@@ -45,6 +49,31 @@ public class FlightController {
     @GetMapping("/getAll")
     public List<Flight> getAllFlights(){
         return repository.findAll();
+    }
+
+    @GetMapping("/provisioning")
+    public void provisioningFlights(@RequestParam(required = false) Integer n){
+        if(n == null) n = 100;
+        List<Flight> newFlightsList = new ArrayList<>();
+        for(int i = 0; i < n; i++) {
+            Flight flight = new Flight();
+            flight.setDescription(randomValue());
+            flight.setFromAirport(randomValue());
+            flight.setToAirport(randomValue());
+            flight.setStatus(Status.randomStatus());
+            newFlightsList.add(flight);
+        }
+        repository.saveAllAndFlush(newFlightsList);
+    }
+
+    @GetMapping("")
+    public Page<Flight> getFlightsPage(@RequestParam int page, @RequestParam int size){
+        return repository.findAll(PageRequest.of(page,size, Sort.by("fromAirport")));
+    }
+
+    @GetMapping("/custom")
+    public List<Flight> getCustom(@RequestParam Status p1, @RequestParam Status p2){
+        return repository.getCustom(p1, p2);
     }
 
 }

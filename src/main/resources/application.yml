@@ -9,5 +9,5 @@ spring:
       FAIL_ON_EMPTY_BEANS: false
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
